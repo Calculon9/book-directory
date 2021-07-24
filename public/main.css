@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Patrick Hand, sans-serif;
+}
+
+/* NAVIGATION */
+
+.nav-container {
+    background-color: #edc7b7;
+    padding: 20px;
+    border-bottom: 3px solid #e8a87c;
+}
+
+.nav-panel {
+    margin: auto;
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.page-title {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+/* MAIN CONTENT */
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: #eee2dc;
+    color: #ac3b61;
+}
+
+a {
+    color: #eee2dc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Books Panel*/
+
+.books {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 15px;
+    background-color: #eee2dc;
+    text-align: center;
+    width: 75%;
+}
+
+#book-list {
+    margin: auto;
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book {
+    margin: 5px;
+    background-color: #edc7b7;
+    color: #ac3b61;
+    width: 170px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px #c5926f;
+}
+
+.book-title {
+    background-color: #e8a87c;
+    color: #eee2dc;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+
+.button-wrap {
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete, .edit {
+    cursor: pointer;
+    margin: 0px 4px;
+}
+
+/* Book Register Panel */
+
+#book-register {
+    background-color: #edc7b7;
+    padding: 2%;
+    width: 25%;
+    height: 100vh;
+    border-right: 3px solid #e8a87c;
+}
+
+.title-wrap {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.item input {
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    width: 100%;
+    background-color: #f3f1f0;
+}
+
+#submit {
+    font-size: larger;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: grey;
+    border: none;
+    color: #eee2dc;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/edit.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Edit Book</title>
+</head>
+
+<div class='nav-container'>
+    <div class='nav-panel'>
+        <div class='page-title'>
+            <h2>WEB LIBRARY</h2>
+        </div>
+        <nav>
+            <div id='home'><a href="/">HOME</a></div>
+        </nav>
+    </div>
+</div>
+
+<body>
+    <form method="POST" action=<%='/api/books/update/' + book.id %>>
+        <div class='title-wrap'>
+            <h3>Editing <span class='title-span'>
+                    <%=book.title%>
+            </span></h3>
+        </div>
+
+        <div class="book">
+            <div class='item'>
+                <label for="title">Title</label><br>
+                <input id='title' name='title' type="text">
+            </div>
+            <div class='item'>
+                <label for="author">Author</label><br>
+                <input id='author' name='author' type="text">
+            </div>
+            <div class='item'>
+                <label for="year">Year</label><br>
+                <input id='year' name='year' type="text">
+            </div>
+            <div>
+                <button id='submit'>SUBMIT</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

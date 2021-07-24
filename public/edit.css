@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Patrick Hand, sans-serif;
+}
+
+body {
+    background-color: #eee2dc;
+    color: #ac3b61;
+}
+
+.nav-container {
+    background-color: #edc7b7;
+    padding: 20px;
+    border-bottom: 3px solid #e8a87c;
+}
+
+.nav-panel {
+    margin: auto;
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#home {
+    background-color: #e8a87c;
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+a {
+    color: #eee2dc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+form {
+    background-color: #edc7b7;
+    box-shadow: 4px 2px 4px #c5926f;
+    border-radius: 10px;
+    width: 25%;
+    padding: 2%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.title-wrap {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title-span {
+    padding: 5px;
+    border-radius: 10px;
+    color: #eee2dc;
+    background-color: #e8a87c;
+}
+
+.item input {
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    width: 100%;
+    background-color: #f3f1f0;
+}
+
+#submit {
+    font-size: larger;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #ac3b61;
+    border: none;
+    color: #eee2dc;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#submit:hover {
+    background-color: #d4678c;
+}

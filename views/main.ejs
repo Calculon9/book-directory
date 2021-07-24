@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Book Directory</title>
+</head>
+
+<div class='nav-container'>
+    <nav class='nav-panel'>
+        <div class='page-title'>
+            <h1>WEB LIBRARY</h1>
+            <p><em>create your own library online!</em></p>
+        </div>
+    </nav>
+</div>
+
+<body>
+    <div class="container">
+        <div id="book-register">
+            <form method='POST' action="/api/books">
+                <div class='title-wrap'>
+                    <h2>NEW BOOK</h2>
+                </div>
+
+                <div>
+                    <div class='item'>
+                        <label for="title">Title</label><br>
+                        <input id='title' name='title' type="text">
+                    </div>
+                    <div class='item'>
+                        <label for="author">Author</label><br>
+                        <input id='author' name='author' type="text">
+                    </div>
+                    <div class='item'>
+                        <label for="year">Year</label><br>
+                        <input id='year' name='year' type="text">
+                    </div>
+                    <div>
+                        <button id='submit' disabled>SUBMIT</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="books">
+            <div class='title-wrap'>
+                <h2>LIBRARY</h2>
+            </div>
+            <div id="book-list">
+                <% books.forEach(book=> { %>
+                    <div id=<%=book.id %> class="book">
+                        <div class='book-title'>
+                            <h4>
+                                <%= book.title %>
+                            </h4>
+                        </div>
+                        <p>
+                            <%= book.author %>
+                        </p>
+                        <p>
+                            <%= book.year %>
+                        </p>
+                        <div class="button-wrap">
+                            <div class="delete"><i class="fas fa-trash-alt"></i></div>
+                            <div class="edit"><i class="fas fa-edit"></i></div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        // FORM VALIDATION
+        let form = document.querySelector('form');
+        let submit = document.querySelector('#submit');
+        let complete;
+        form.addEventListener('change', verify);
+
+        // Checks if form is complete
+        function verify(e) {
+            let inputs = document.querySelectorAll('input');
+            console.log('ppp')
+            complete = Array.from(inputs).every(input => {
+                if (input.value) {
+                    return true;
+                } else {
+                    return false;
+                }
+            })
+            if (complete) {
+                submit.style.backgroundColor = '#ac3b61'
+                submit.removeAttribute('disabled');
+            } else {
+                submit.style.backgroundColor = 'grey'
+                submit.setAttribute('disabled', 'disabled');
+            }
+        }
+
+        // AJAX DELETE REQUEST
+
+        let delBtn = document.querySelectorAll('.delete');
+        Array.from(delBtn).forEach(btn => btn.addEventListener('click', delBook))
+
+        function delBook(e) {
+            if (confirm('Are you sure you want to delete this book?')) {
+                // Get book id as identifier
+                let id = e.currentTarget.parentElement.parentElement.getAttribute('id');
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', '/api/books/delete/' + id);
+                xhr.setRequestHeader('Content-type', 'application/json');
+                xhr.onload = () => {
+                    if (xhr.readyState == 4 & xhr.status >= 200) {
+                        console.log(xhr.responseText)
+                    } else {
+                        console.log("Server error")
+                    }
+                }
+                xhr.send();
+                window.location.href = '/'; // This is here because AJAX requests don't allow the URL to change on backend
+            } else {
+                return;
+            }
+        }
+
+        // AJAX POST HTTP request to backend with book info
+
+        let editBtn = document.querySelectorAll('.edit');
+        Array.from(editBtn).forEach(btn => btn.addEventListener('click', editBook));
+
+        function editBook(e) {
+            if (confirm("Do you want to edit this book?")) {
+                let id = e.currentTarget.parentElement.parentElement.getAttribute('id');
+                window.location.href = '/api/books/edit/' + id;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
