@@ -9,6 +9,10 @@
     "mongoose": "^5.12.12"
   },
   "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
   "author": "Web Calcs",
   "license": "ISC"
 }
